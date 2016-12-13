@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <form method="post" action="/">
+    {% csrf_token %}
+      <div class="form-control">
+        <label for="catalog_number">Номера в каталоге</label>
+          <textarea class="form-control" id="catalog_number" rows="3" name="catalog_number"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Сформировать файл</button>
+    </form>
+    {% if file %}
+    <a href="{{ file }}"><button type="button" class="btn btn-primary">Скачать файл</button></a>
+
+    {% endif %}
+
+{% endblock content %}
